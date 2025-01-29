@@ -4,25 +4,25 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
+  <a href="https://github.com/xeanti/">
   <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="./assets/img/logo.png" alt="Logo" width="790" height="142">
   </a>
 <!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Title</h3>
+  <h3 align="center">Seatwork 1</h3>
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+  Banking System
 </div>
 
 <br />
 
 <!-- TODO: Change the zyx-0314 into your github username  -->
 <!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/WD-Template-Project)
+![](https://visit-counter.vercel.app/counter.png?page=xeanti/AWD-Seatwork-1-1-MS-25)
 
-[![wakatime](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8.svg)](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8)
+[![wakatime](https://wakatime.com/badge/user/018efa0c-68f3-42b9-8dc0-b06b516e8ade/project/16ef87c0-5895-406f-b0bc-5129672d4a04.svg)](https://wakatime.com/badge/user/018efa0c-68f3-42b9-8dc0-b06b516e8ade/project/16ef87c0-5895-406f-b0bc-5129672d4a04)
 
 ---
 
