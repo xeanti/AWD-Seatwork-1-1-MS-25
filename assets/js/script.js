@@ -1,6 +1,6 @@
 document.getElementById('loginContainer').style.display = 'flex';
 
-const initialBalance = 5000; // Set the initial balance
+const initialBalance = 5000;
 const accounts = [
     { username: 'Sir', password: 'Sir1' },
     { username: 'Xeanti', password: 'Xeanti__' },
@@ -15,8 +15,8 @@ function login() {
 
     if (account) {
         alert('Login successful!');
-        localStorage.setItem('balance', initialBalance); // Store the initial balance
-        document.getElementById('loginContainer').style.display = 'none'; // Hide login
+        localStorage.setItem('balance', initialBalance);
+        document.getElementById('loginContainer').style.display = 'none';
     } else {
         alert('Invalid username or password');
     }

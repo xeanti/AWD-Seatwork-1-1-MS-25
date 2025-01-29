@@ -12,15 +12,14 @@ window.onload = function () {
     const storedTransactions = localStorage.getItem('transactions');
     const storedDailyWithdrawal = localStorage.getItem('dailyWithdrawal');
 
-    // Check if storedBalance exists
     if (storedBalance) {
         balance = parseFloat(storedBalance);
     } else {
-        balance = 5000; // Set initial balance if none exists
-        localStorage.setItem('balance', balance.toFixed(2)); // Store the initial balance
+        balance = 5000;
+        localStorage.setItem('balance', balance.toFixed(2));
     }
     
-    updateBalance(); // Update the displayed balance
+    updateBalance();
 
     if (storedDailyWithdrawal) {
         dailyWithdrawal = parseFloat(storedDailyWithdrawal);

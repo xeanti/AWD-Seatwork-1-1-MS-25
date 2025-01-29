@@ -62,16 +62,14 @@
 Description of the project in details.
 
 Guiding Question:
-- What is the project
-- Whats the purpose
-- What are key components
-- What technology used and how it is used
+- Banking System
+- To Show and Demonstrate a sample of Banking System
+- Login Function
 
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
+- MultiPage Website
 - Transactional
 
 ### Technology

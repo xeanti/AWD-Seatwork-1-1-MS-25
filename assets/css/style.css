@@ -12,30 +12,31 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #4CAF50; /* Light background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #4CAF50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .company-logo {
-    height: 40px; /* Adjust based on your logo size */
+    height: 40px;
 }
 
 .button-container {
-    margin-left: auto; /* Pushes the button to the right */
+    margin-left: auto;
 }
 
 .button_home {
     text-decoration: none;
-    color: rgb(255, 255, 255); /* White text for contrast */
-    background-color: #000000; /* Primary button color */
+    color: rgb(255, 255, 255);
+    background-color: #000000;
     padding: 10px 20px;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition */
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .button_home:hover {
-    background-color: #b3b3b3; /* Darker shade on hover */
+    background-color: #b3b3b3;
 }
+
 .hero {
     height: 80vh;
     background: black;
@@ -56,7 +57,6 @@ header {
     font-size: 1.2em;
     margin: 10px 0 20px;
 }
-
 
 .features {
     display: grid;
@@ -84,7 +84,6 @@ header {
     margin-bottom: 10px;
 }
 
-
 footer {
     text-align: center;
     padding: 20px;
@@ -97,7 +96,7 @@ footer p {
 }
 
 .login-container {
-    display: none; /* Initially hidden */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -107,6 +106,7 @@ footer p {
     justify-content: center;
     align-items: center;
 }
+
 .login-form {
     justify-content: center;
     align-items: center;
@@ -115,6 +115,7 @@ footer p {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+
 .login-form input {
     display: block;
     margin: 10px 0;
@@ -123,6 +124,7 @@ footer p {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .login-form button {
     padding: 10px;
     background-color: #4CAF50;
