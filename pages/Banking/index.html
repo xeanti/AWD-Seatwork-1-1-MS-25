@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/img/logo.png" class="company-logo" alt="Company Logo">
+        <div class="button-container">
+            <a href="../../index.html" class="button_home">Log-Out</a>
+        </div>
+    </header>
+    
+    <div class="banking-system">
+        <div class="header">Banking System</div>
+        <div class="content">
+            <div class="balance">Balance: ₱ <span id="balance">0.00</span></div>
+            <div class="actions">
+                <input type="number" id="transactionAmount" placeholder="Enter amount" oninput="this.value = this.value.slice(0, 8)" />
+                <div class="button-container">
+                    <button onclick="handleTransaction('deposit')">Deposit</button>
+                    <button onclick="handleTransaction('withdraw')">Withdraw</button>
+                </div>
+            </div>
+            <div class="transaction-history" id="transactionHistory">
+                <h4>Transaction History</h4>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/scripts.js"></script>
+
+    <footer>
+        <p>&copy; Madlang-awa | 2025</p>
+    </footer>
+</body>
+</html>
