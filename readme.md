@@ -90,23 +90,30 @@ Guiding Question:
 7. File Structure to follow below.
 
 ```
-WD-ProjectName
+AWD-Seatwork-1-1-MS-25
 └─ assets
 |   └─ css
 |   |   └─ style.css
 |   └─ img
-|   |   └─ fileWith.jpeg/.jpg/.webp/.png
+|   |   └─ 1.png
+|   |   └─ 2.jpg
+|   |   └─ 3.ppg
+|   |   └─ bg.jpg
+|   |   └─ icon.ico
+|   |   └─ logo.png
 |   └─ js
 |       └─ script.js
 └─ pages
-|  └─ pageName
+|  └─ Banking
 |     └─ assets
 |     |  └─ css
-|     |  |  └─ style.css
+|     |      └─ style.css
 |     |  └─ img
-|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
+|     |      └─ bg.jpg
+|     |      └─ icon.ico
+|     |      └─ logo.png
 |     |  └─ js
-|     |     └─ script.js
+|     |      └─ script.js
 |     └─ index.html
 └─ index.html
 └─ readme.md
@@ -117,4 +124,6 @@ WD-ProjectName
 <!-- TODO: Add References -->
 | Title | Purpose | Link |
 |-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+| Google | I used this for images. | google.com |
+| Google Fonts | I used this for Fonts. | fonts.google.com |
+
