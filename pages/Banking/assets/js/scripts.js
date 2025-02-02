@@ -2,10 +2,46 @@ document.getElementById('loginContainer').style.display = 'flex';
 
 const initialBalance = 5000;
 const accounts = [
-    { username: 'Sir', password: 'Sir1' },
-    { username: 'Xeanti', password: 'Xeanti__' },
-    { username: 'user3', password: 'pass3' }
+    { "username": "Xeanti", "password": "Xeanti" },
+    { "username": "Sir Ian", "password": "Sir Ian" },
+    { "username": "keth", "password": "keth1" },
+    { "username": "User1", "password": "Pass1" },
+    { "username": "user2", "password": "pass2" }
 ];
+
+let currentUser = null;
+let balance = 0;
+let dailyWithdrawal = 0;
+const MAX_BALANCE = 10000000;
+const MAX_DAILY_WITHDRAWAL = 100000;
+const MIN_DEPOSIT = 100;
+const MIN_WITHDRAWAL = 500;
+const balanceElement = document.getElementById('balance');
+const transactionHistoryElement = document.getElementById('transactionHistory');
+const transactionAmountInput = document.getElementById('transactionAmount');
+
+window.onload = function () {
+    const storedUser = localStorage.getItem('loggedInUser');
+    if (storedUser) {
+        currentUser = storedUser;
+        const storedBalance = localStorage.getItem(`balance_${currentUser}`);
+        balance = storedBalance ? parseFloat(storedBalance) : initialBalance;
+        updateBalance();
+        loadUserTransactions();
+    }
+};
+
+document.getElementById('username').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        login();
+    }
+});
+
+document.getElementById('password').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        login();
+    }
+});
 
 function login() {
     const username = document.getElementById('username').value;
@@ -15,52 +51,22 @@ function login() {
 
     if (account) {
         alert('Login successful!');
-        localStorage.setItem('balance', initialBalance);
+        localStorage.setItem('loggedInUser', username);
+        currentUser = username;
+        
+        const storedBalance = localStorage.getItem(`balance_${currentUser}`);
+        balance = storedBalance ? parseFloat(storedBalance) : initialBalance; // Use stored balance if available
+        
         document.getElementById('loginContainer').style.display = 'none';
+        updateBalance();
+        loadUserTransactions();
     } else {
         alert('Invalid username or password');
     }
 }
 
-
-let balance = 0;
-let dailyWithdrawal = 0;
-const MAX_BALANCE = 10000000;
-const MAX_DAILY_WITHDRAWAL = 100000;
-const MIN_DEPOSIT = 100;
-const balanceElement = document.getElementById('balance');
-const transactionHistoryElement = document.getElementById('transactionHistory');
-const transactionAmountInput = document.getElementById('transactionAmount');
-
-window.onload = function () {
-    const storedBalance = localStorage.getItem('balance');
-    const storedTransactions = localStorage.getItem('transactions');
-    const storedDailyWithdrawal = localStorage.getItem('dailyWithdrawal');
-
-    if (storedBalance) {
-        balance = parseFloat(storedBalance);
-    } else {
-        balance = 5000;
-        localStorage.setItem('balance', balance.toFixed(2));
-    }
-    
-    updateBalance();
-
-    if (storedDailyWithdrawal) {
-        dailyWithdrawal = parseFloat(storedDailyWithdrawal);
-    }
-
-    if (storedTransactions) {
-        const transactions = JSON.parse(storedTransactions);
-        transactions.forEach(({ type, amount }) => {
-            addTransactionToHistory(type, amount, false);
-        });
-    }
-};
-
 function handleTransaction(type) {
     const amount = parseFloat(transactionAmountInput.value);
-
     if (isNaN(amount) || amount <= 0) {
         alert('Please enter a valid amount.');
         return;
@@ -80,6 +86,10 @@ function handleTransaction(type) {
     }
 
     if (type === 'withdraw') {
+        if (amount < MIN_WITHDRAWAL) {
+            alert(`Minimum withdrawal amount is ₱${MIN_WITHDRAWAL}.`);
+            return;
+        }
         if (amount > balance) {
             alert('Insufficient balance!');
             return;
@@ -101,7 +111,7 @@ function handleTransaction(type) {
 
 function updateBalance() {
     balanceElement.textContent = balance.toFixed(2);
-    localStorage.setItem('balance', balance.toFixed(2));
+    localStorage.setItem(`balance_${currentUser}`, balance.toFixed(2));
 }
 
 function addTransactionToHistory(type, amount, save = true) {
@@ -119,10 +129,24 @@ function addTransactionToHistory(type, amount, save = true) {
 }
 
 function saveTransactionToLocalStorage(type, amount) {
-    let transactions = localStorage.getItem('transactions');
+    if (!currentUser) return;
+
+    let transactions = localStorage.getItem(`transactions_${currentUser}`);
     transactions = transactions ? JSON.parse(transactions) : [];
     transactions.push({ type, amount });
-    localStorage.setItem('transactions', JSON.stringify(transactions));
+    localStorage.setItem(`transactions_${currentUser}`, JSON.stringify(transactions));
+}
+
+function loadUserTransactions() {
+    transactionHistoryElement.innerHTML = "";
+    const storedTransactions = localStorage.getItem(`transactions_${currentUser}`);
+
+    if (storedTransactions) {
+        const transactions = JSON.parse(storedTransactions);
+        transactions.forEach(({ type, amount }) => {
+            addTransactionToHistory(type, amount, false);
+        });
+    }
 }
 
 transactionAmountInput.maxLength = 8;
