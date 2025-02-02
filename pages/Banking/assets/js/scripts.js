@@ -6,7 +6,9 @@ const accounts = [
     { "username": "Sir Ian", "password": "Sir Ian" },
     { "username": "keth", "password": "keth1" },
     { "username": "User1", "password": "Pass1" },
-    { "username": "user2", "password": "pass2" }
+    { "username": "user2", "password": "pass2" },
+    { "username": "user3", "password": "pass3" }
+
 ];
 
 let currentUser = null;
@@ -55,7 +57,7 @@ function login() {
         currentUser = username;
         
         const storedBalance = localStorage.getItem(`balance_${currentUser}`);
-        balance = storedBalance ? parseFloat(storedBalance) : initialBalance; // Use stored balance if available
+        balance = storedBalance ? parseFloat(storedBalance) : initialBalance;
         
         document.getElementById('loginContainer').style.display = 'none';
         updateBalance();
