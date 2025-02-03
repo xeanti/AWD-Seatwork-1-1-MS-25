@@ -1,15 +1,8 @@
 document.getElementById('loginContainer').style.display = 'flex';
 
 const initialBalance = 5000;
-const accounts = [
-    { "username": "Xeanti", "password": "Xeanti" },
-    { "username": "Sir Ian", "password": "Sir Ian" },
-    { "username": "keth", "password": "keth1" },
-    { "username": "User1", "password": "Pass1" },
-    { "username": "user2", "password": "pass2" },
-    { "username": "user3", "password": "pass3" }
-
-];
+const username = "User";
+const password = "Password";
 
 let currentUser = null;
 let balance = 0;
@@ -24,7 +17,7 @@ const transactionAmountInput = document.getElementById('transactionAmount');
 
 window.onload = function () {
     const storedUser = localStorage.getItem('loggedInUser');
-    if (storedUser) {
+    if (storedUser === username) {
         currentUser = storedUser;
         const storedBalance = localStorage.getItem(`balance_${currentUser}`);
         balance = storedBalance ? parseFloat(storedBalance) : initialBalance;
@@ -33,12 +26,6 @@ window.onload = function () {
     }
 };
 
-document.getElementById('username').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        login();
-    }
-});
-
 document.getElementById('password').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         login();
@@ -46,19 +33,17 @@ document.getElementById('password').addEventListener('keypress', function(event)
 });
 
 function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const enteredUsername = document.getElementById('username').value;
+    const enteredPassword = document.getElementById('password').value;
 
-    const account = accounts.find(acc => acc.username === username && acc.password === password);
-
-    if (account) {
+    if (enteredUsername === username && enteredPassword === password) {
         alert('Login successful!');
         localStorage.setItem('loggedInUser', username);
         currentUser = username;
-        
+
         const storedBalance = localStorage.getItem(`balance_${currentUser}`);
         balance = storedBalance ? parseFloat(storedBalance) : initialBalance;
-        
+
         document.getElementById('loginContainer').style.display = 'none';
         updateBalance();
         loadUserTransactions();
@@ -104,7 +89,7 @@ function handleTransaction(type) {
         balance -= amount;
         dailyWithdrawal += amount;
         localStorage.setItem('dailyWithdrawal', dailyWithdrawal.toFixed(2));
-        addTransactionToHistory('withdrawal', amount);
+        addTransactionToHistory('withdraw', amount);
     }
 
     updateBalance();
